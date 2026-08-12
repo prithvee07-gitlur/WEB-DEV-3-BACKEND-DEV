@@ -77,3 +77,34 @@ require('dotenv').config();
 // config .env file ki configuration karga - means link stablize kar raha hai 
 console.log(process.env.PORT);  // we are accessing the env file throught the process
 
+// day -3 
+
+// dot env module is used to load environment variables from a .env file into process.env
+const http = require('http');
+const server = http.createServer((req,res)=>{
+    if (req.url === '/'){
+        res.writeHead(200,{'content-type':'text/html'});
+        res.end(
+            `<h1 style = 'color:red'> Hello World </h1>
+            <p> Welcome to my first node js application </p>`
+        );}
+    else{
+        res.writeHead(404,{'content-type':'application/json'});
+        res.end(JSON.stringify({error:'Route not found'}));
+    }
+});
+
+// post request try 
+   
+
+// require('dotenv').config();
+// const Port = process.env.PORT|| 3000;
+// const server = http.createServer((req, res) => {
+//     res.writeHead(200, { 'Content-Type': 'text/html' });
+//     res.write('<h1>Hello World</h1>');
+//     res.write('<p>Welcome to my first node js application</p>');
+//     res.end();
+// });
+// server.listen(Port, () => {
+//     console.log(`Server is running on port ${Port}`);
+// });
