@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 
 // importing the packages from the tour.js file 
-const packages = require('./data.tour');
+const packages = require('./data/tour');
 
 // using home route to get the welcome message
 app.get('/',(req,res)=>{
@@ -15,11 +15,12 @@ app.get('/',(req,res)=>{
 
 // getting the particular destination according to the route
 app.get("/packages",(req,res)=>{
+    const des=req.query.des;
     if(!des){
         res.json(packages);
     }
     const result = packages.filter(
-        item => item.destination.toLocaleLowerCase() == des.toLocaleLowerCase()
+        (item) => item.destination.toLowerCase() === des.toLowerCase()
     );
     res.json(result);
 })
@@ -35,6 +36,10 @@ app.get("/packages/:id",(req,res)=>{
 })
 
 // this will run the server in the PORT - 5000
-app.listen(5000,()=>{
+app.listen(3000,()=>{
     console.log("Server is running on port 5000")
 })
+
+// 17-8-2026
+// done the code for the getting the particular desitination
+//  according to the route as written above in today's class
