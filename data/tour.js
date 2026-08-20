@@ -1,37 +1,71 @@
 // creating and object manually for the packages available 
 
-const packages = [
-    {
-        id:1,
-        name:"Goa Beach Escape",
-        destination :"Goa",
-        days:5,
-        price:12000
-    },
+// const packages = [
+//     {
+//         id:1,
+//         name:"Goa Beach Escape",
+//         destination :"Goa",
+//         days:5,
+//         price:12000
+//     },
         
-    {
-        id:2,
-        name:"Manali Adventure",
-        destination :"Manali",
-        days:3,
-        price:22000
-    },
-        {
-        id:3,
-        name:"Jaipur Heritage Tour",
-        destination :"Jaipur",
-        days:7,
-        price:25000
-    },
-        {
-        id:4,
-        name:"Goa Beach Escape -2",
-        destination :"Goa",
-        days:6,
-        price:22000
-    }
+//     {
+//         id:2,
+//         name:"Manali Adventure",
+//         destination :"Manali",
+//         days:3,
+//         price:22000
+//     },
+//         {
+//         id:3,
+//         name:"Jaipur Heritage Tour",
+//         destination :"Jaipur",
+//         days:7,
+//         price:25000
+//     },
+//         {
+//         id:4,
+//         name:"Goa Beach Escape -2",
+//         destination :"Goa",
+//         days:6,
+//         price:22000
+//     }
 
-]
+// ]
 
-// exporting the packages so that we can import it and use it 
-module.exports = packages;
+// 20 - 8 - 2026
+
+//  exporting the packages so that we can import it and use it 
+// module.exports = packages;
+// see tour.json file for this 
+
+// [
+//   {
+//     "id": 1,
+//     "name": "Goa Beach Escape",
+//     "destination": "Goa",
+//     "days": 5,
+//     "price": 12000
+//   },
+//   {
+//     "id": 2,
+//     "name": "Manali Adventure",
+//     "destination": "Manali",
+//     "days": 3,
+//     "price": 22000
+//   },
+//   {
+//     "id": 3,
+//     "name": "Jaipur Heritage Tour",
+//     "destination": "Jaipur",
+//     "days": 7,
+//     "price": 25000
+//   },
+//   {
+//     "id": 4,
+//     "name": "Goa Beach Escape -2",
+//     "destination": "Goa",
+//     "days": 6,
+//     "price": 22000
+//   }
+// ]
