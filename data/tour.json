@@ -26,5 +26,13 @@
     "destination": "Goa",
     "days": 6,
     "price": 22000
+  },
+  null,
+  {
+    "id": 12,
+    "name": "Goa Beach Escape",
+    "destination": "Goa",
+    "days": 99,
+    "price": 12000
   }
 ]

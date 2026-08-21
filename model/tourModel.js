@@ -16,9 +16,39 @@ const getById = (id) =>{
     return packages.find(pkg=>pkg.id == id);
 }  // we will get the things by the matching id entered by the user
 
+// post request
+const save = (tour) => {
+    const data = fs.readFileSync(packageFilePath,'utf-8'); 
+    const packages = JSON.parse(data);
+    packages.push(tour);
+    fs.writeFileSync(packageFilePath,JSON.stringify(packages,null,2),'utf-8');
+}
+
+// updating the values
+const update = (id,updatedTour)=>{
+    const data = fs.readFileSync(packageFilePath,'utf-8');
+    const packages = JSON.parse(data);
+    const index= packages.findIndex(pkg=>pkg.id===id);
+    if (index!==-1){
+        packages[index]={...packages[index],...updatedTour};
+        fs.writeFileSync(packageFilePath,JSON.stringify(packages,null,2),'utf-8');
+    }
+}
+
+// deleting the values
+const deleteTour=(id)=>{
+    const data = fs.readFileSync(packageFilePath,'utf-8');
+    const packages=JSON.parse(data);
+    const updatedPackages = packages.filter(pkg=>pkg.id!==id);
+    fs.writeFileSync(packageFilePath,JSON.stringify(updatedPackages,null,2),'utf-8');
+}
+
 // exporting the things we created above by creating them into the modules 
 // and then we will move to the controller for further work 
 module.exports={
     getAll,
-    getById
+    getById,
+    save,
+    update,
+    deleteTour
 }

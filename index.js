@@ -55,8 +55,10 @@ const app = express();
 
 const port=3000;
 const tourRouter = require('./route/tourRouter');  
+app.use(express.json());  // is line ke bina code nahi chalega 
 app.use('/tours',tourRouter); // '/tours' yeh home route ban jayega 
 
 app.listen(port,()=>{
     console.log(`Example app listening on port ${port}`);
 });
+
