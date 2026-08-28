@@ -62,3 +62,15 @@ app.listen(port,()=>{
     console.log(`Example app listening on port ${port}`);
 });
 
+
+// HOME WORK : USER CRUD OPERATIONS DEMONSTRATION
+
+const UserPort=8080;
+const userRouter = require('./route/userRouter');  
+app.use(express.json());  
+app.use('/user',userRouter); 
+
+app.listen(UserPort,()=>{
+    console.log(`user is running on the port ${UserPort}`);
+});
+
