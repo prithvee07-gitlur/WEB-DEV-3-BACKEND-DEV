@@ -6,7 +6,8 @@ const packageFilePath= path.join(__dirname,'../data/tour.json') // convert the p
 
 const getAll = () => {
     const data = fs.readFileSync(packageFilePath,'utf-8');
-    return JSON.parse(data)
+    return JSON.parse(data) 
+    // this takes JSON formatted text and convert it into a real js obejct or value
 }    // we will get all the data from tour.json
 
 const getById = (id) =>{
