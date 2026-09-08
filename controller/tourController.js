@@ -10,6 +10,9 @@ const getAllTour=(req,res)=>{
 
 const getTourById=(req,res)=>{
     const id=parseInt(req.params.id);
+    // parseInt takes a string, reads digits from the start,
+    // return an integers (no decimal) and returns NaN if 
+    // it can't find a valid number at the start
     const tour = tourModel.getById(id);
     if (tour){
         res.status(200).json(tour);
@@ -35,7 +38,7 @@ const updatedTour = (req,res) =>{
 // delete controller
 const deleteTourbyId=(req,res)=>{
     const id = parseInt(req.params.id);
-    tourModel .deleteTour(id);
+    tourModel.deleteTour(id);
     res.status(200).json({message: "Tour deleted successfully"});
 }
 

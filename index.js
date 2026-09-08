@@ -4,6 +4,19 @@ const express = require('express');
 // called the function by factory method
 
 const app = express();
+const notesRoute=require("./route/noteRouter")
+// in built modules 
+app.use(express.json())  
+app.use(express.urlencoded({extended:true}))  // jab form se data ata hai then we will use this function 
+// express.urlencoded  =  jab bhi form se data ayega toh yeh parse kar dega taki hum ise easily get kar paye 
+// extended:true  =  jab form me data nested format me ho toh we use this like user={ name ={ surname =}}
+
+// importing the morgan module that is an external module that is 3rd party middleware
+const morgan = require("morgan");  // to get the information related to a partical request then we use this module
+app.use(morgan("dev")); // dev isliye likha hai kyuki hame short form me data chaiye agar detail me chaiye toh we will use the combine 
+// in place of dev
+
+
 
 // importing the packages from the tour.js file 
 // const packages = require('./data/tour');
@@ -56,6 +69,7 @@ const app = express();
 const port=3000;
 const tourRouter = require('./route/tourRouter');  
 app.use(express.json());  // is line ke bina code nahi chalega 
+// kyuki express does not read or parse the request body
 app.use('/tours',tourRouter); // '/tours' yeh home route ban jayega 
 
 app.listen(port,()=>{
@@ -67,10 +81,32 @@ app.listen(port,()=>{
 
 const UserPort=8080;
 const userRouter = require('./route/userRouter');  
-app.use(express.json());  
+app.use(express.json());  // yeh json ka data parse kar dega taki hum data ko use kar paye
 app.use('/user',userRouter); 
 
 app.listen(UserPort,()=>{
     console.log(`user is running on the port ${UserPort}`);
 });
 
+// 7-9-2026
+
+app.get('/',(req,res)=>{
+    console.log("this request is from that device") // first way is that you can write this line everywhere 
+    // second way is by using morgan to get the information 
+    res.send("HOME PAGE")
+})
+
+app.use("/api",notesRoute);
+
+app.listen(5000,()=>{
+    console.log("user is running on the port 3000");
+});
+
+// for 3rd party module we have installed morgan (npm i morgan)
+// some more 3rd party modules :
+// cors - cross origin resource sharing - useful when we connect the frontend
+// cookie parser - jab frontend se cookie send karte hai toh backend me use parse karne ke liye use hota hai 
+
+// custom middlewares : 
+
+// sabse pehle jo request ati hai vo index.js me jati hai 
