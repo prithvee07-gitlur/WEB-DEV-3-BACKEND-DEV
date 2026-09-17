@@ -110,3 +110,30 @@ app.listen(5000,()=>{
 // custom middlewares : 
 
 // sabse pehle jo request ati hai vo index.js me jati hai 
+
+
+// 17-sep-2026
+
+// middlewares
+const logger1 = (req,res,next)=>{
+    console.log("Middle ware ran !!!")
+}
+
+const checkAge=(req,res,next)=>{
+    const age=23;
+    if(age<18){
+        return res.status(403).json({
+            message:"There are no packages for your age group"
+        })
+    }
+    next();
+}
+
+const logger2=(req,res,next)=>{
+    console.log("Middle ware Ran !!! logger 2")
+    next();
+}
+
+app.use(logger1);
+app.use(checkAge);
+app.use(logger2)
