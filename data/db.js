@@ -10,14 +10,16 @@
 //     }     
 // ])
 
-{
-    name: "Amit",
-    skills: ["JavaScript", "Node.js", "MongoDB"],
-}
-
-Amit - JavaScript
-Amit - Node.js 
-Amit - MongoDB
+// Example student document:
+// {
+//     name: "Amit",
+//     skills: ["JavaScript", "Node.js", "MongoDB"]
+// }
+//
+// Example output:
+// Amit - JavaScript
+// Amit - Node.js
+// Amit - MongoDB
 
 // db.students.aggregate([
 //     {

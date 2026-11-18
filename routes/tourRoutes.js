@@ -1,24 +1,28 @@
 const express = require('express');
-const router = express.Router();
+const tourRouter = express.Router();
 
 const tourController = require('../controller/tourController');
+const protect = require('../middleware/authMiddleware');
+const restrictTo = require('../middleware/roleMiddleware');
+// Apply authentication middleware to all tour routes
+tourRouter.use(protect);
 
 // GET all tours
-router.get('/tours', tourController.getAllTours);
+tourRouter.get('/tours', tourController.getAllTours);
 
 // GET tours by search query
-router.get('/tours/search', tourController.getToursByQuery);
+tourRouter.get('/tours/search', tourController.getToursByQuery);
 
 // GET tour by ID
-router.get('/tours/:id', tourController.getTourById);
+tourRouter.get('/tours/:id', tourController.getTourById);
 
 // CREATE tour
-router.post('/tours', tourController.saveTours);
+tourRouter.post('/tours',protect,restrictTo('admin', 'superadmin','user'), tourController.saveTours);
 
 // UPDATE tour
-router.put('/tours/:id', tourController.updateTour);
+tourRouter.put('/tours/:id', protect, tourController.updateTour);
 
 // DELETE tour
-router.delete('/tours/:id', tourController.deleteTourbyID);
+tourRouter.delete('/tours/:id', protect, tourController.deleteTourbyID);
 
-module.exports = router;
+module.exports = tourRouter;
